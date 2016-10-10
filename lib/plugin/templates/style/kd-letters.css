@@ -1,0 +1,15 @@
+.progress-bar {
+	width: 100%;
+	box-sizing: border-box;
+	background: rgba(0, 0, 0, .1);
+	height: 5px;
+	position: relative;
+	margin-top: 10px;
+}
+.progress-bar .bar {
+	box-sizing: border-box;
+	background: #0073aa;
+	height: 5px;
+	position: absolute;
+	top: 0; left: 0;
+}
