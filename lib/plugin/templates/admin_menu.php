@@ -8,4 +8,6 @@
 
 	<p>Laiškai, kurie laukia generavimo: <strong><?php echo $waiting_orders; ?></strong> iš <strong><?php echo $total_orders; ?></strong>.</p>
 
+	<p><a href="?page=kd-letters&generate_letters" class="button-primary">Generuoti</a>
+
 </div>
