@@ -53,8 +53,8 @@ class KD_Letters
 	}
 
 	/**
-	 * [register_actions description]
-	 * @return [type] [description]
+	 * Registers plugin actions.
+	 * @return void
 	 */
 	private function register_actions()
 	{
@@ -62,8 +62,8 @@ class KD_Letters
 	}
 
 	/**
-	 * [register_scripts description]
-	 * @return [type] [description]
+	 * Registers plugin styles and scripts.
+	 * @return void
 	 */
 	private function register_scripts()
 	{
@@ -117,17 +117,21 @@ class KD_Letters
 	}
 
 	/**
-	 * [generate description]
-	 * @return [type] [description]
+	 * Creates a PDF file with print-ready KD letters.
+	 * @return void
 	 */
 	private function generate()
 	{
 		$printer = require_once __DIR__ . '/Printer.php';
 		$orders  = $this->get_waiting_orders();
 		
-		foreach ($orders as $order) {
-			#
+		$printer->setup($this);
+
+		/*foreach ($orders as $order) {
+			$printer->add($order);
 		}
+
+		$printer->print();*/
 	}
 }
 

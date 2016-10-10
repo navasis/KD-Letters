@@ -8,4 +8,5 @@ Author:      Romas Navašinskas
 Author URI:  https://github.com/navasis
 License:     None
 */
+define('COMPOSER', __DIR__ . '/composer');
 require_once __DIR__ . '/lib/bootstrap.php';
