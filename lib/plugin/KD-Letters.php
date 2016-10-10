@@ -88,32 +88,14 @@ class KD_Letters
 	 */
 	private function get_num_waiting_orders()
 	{
-		$posts = get_posts(array(
-			'posts_per_page' => -1,
-			'orderby' => 'date',
-			'order' => 'DESC',
-			'meta_query' => array(
-				'relation' => 'OR',
-				array(
-					'key' => '_kd_letters_generated',
-					'compare' => 'NOT EXISTS'
-				),
-				array(
-					'key' => '_kd_letters_generated',
-					'value' => '0'
-				)
-			),
-			'post_type' => 'order_paysera'
-		));
-
-		return sizeof($posts);
+		return sizeof($this->get_waiting_orders());
 	}
 
 	/**
 	 * Returns the array of awaiting orders to be printed.
 	 * @return array Array of orders.
 	 */
-	private function get_waiting_orders()
+	public function get_waiting_orders()
 	{
 		return get_posts(array(
 			'posts_per_page' => -1,
