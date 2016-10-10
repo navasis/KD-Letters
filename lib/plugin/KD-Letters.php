@@ -12,11 +12,12 @@
 class KD_Letters
 {
 	/**
-	 * [dispatch description]
-	 * @return [type] [description]
+	 * Dispatches plugin's actions and calls.
+	 * @return void
 	 */
 	public function dispatch()
 	{
+		// Dispatch actions
 		add_action('admin_menu', array($this, 'admin_menu'));
 
 		if (is_admin()) {
@@ -26,8 +27,8 @@ class KD_Letters
 	}
 
 	/**
-	 * [admin_menu description]
-	 * @return [type] [description]
+	 * Adds admin menu page.
+	 * @return void
 	 */
 	public function admin_menu() 
 	{
@@ -35,8 +36,8 @@ class KD_Letters
 	}
 	
 	/**
-	 * [admin_menu_options description]
-	 * @return [type] [description]
+	 * Controlls the admin menu page view and renders it.
+	 * @return void
 	 */
 	public function admin_menu_options()
 	{
@@ -52,8 +53,8 @@ class KD_Letters
 	}
 
 	/**
-	 * [get_total_orders description]
-	 * @return [type] [description]
+	 * Returns the total number of orders.
+	 * @return int Number of orders.
 	 */
 	private function get_total_orders()
 	{
@@ -61,8 +62,8 @@ class KD_Letters
 	}
 
 	/**
-	 * [get_waiting_orders description]
-	 * @return [type] [description]
+	 * Returns the total number of awaiting orders to be printed.
+	 * @return int Number of orders.
 	 */
 	private function get_waiting_orders()
 	{
