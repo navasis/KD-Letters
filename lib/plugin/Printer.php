@@ -11,7 +11,6 @@
  */
 
 use Dompdf\Dompdf;
-use Dompdf\Options;
 
 class Printer
 {
@@ -28,10 +27,10 @@ class Printer
 	private $dompdf = null;
 
 	/**
-	 * Holds the dompdf/dompdf options class.
-	 * @var Options
+	 * Holds the letter template.
+	 * @var string
 	 */
-	private $options = null;
+	private $template = null;
 
 	/**
 	 * Initialisses the Printer class and creates a connection between the
@@ -51,8 +50,7 @@ class Printer
 		require_once COMPOSER . '/autoload.php';
 
 		// Class injection
-		$this->options = new Options();
-		$this->dompdf = new Dompdf($this->options);
+		$this->dompdf = new Dompdf();
 
 		// Setup
 		$this->set_options();
@@ -64,10 +62,21 @@ class Printer
 	 */
 	private function set_options()
 	{
-		$this->dompdf->set_paper(array(
-			0, 0,
-			311.81, 623.622
-		));
+		$this->dompdf->set_paper(array(0, 0, 325.98, 646.299), 'landscape');
+		$this->dompdf->set_option('isHtml5ParserEnabled', true);
+		$this->dompdf->set_option('isRemoteEnabled', true);
+		$this->dompdf->set_option('chroot', __DIR__ . '/templates');
+	}
+
+	/**
+	 * [output description]
+	 * @return [type] [description]
+	 */
+	public function output()
+	{
+		$this->dompdf->loadHtmlFile(__DIR__ . '/templates/letter.html');
+		$this->dompdf->render();
+		$this->dompdf->stream(time() . '_document', array(0, 0));
 	}
 }
 

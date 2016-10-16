@@ -129,9 +129,9 @@ class KD_Letters
 
 		/*foreach ($orders as $order) {
 			$printer->add($order);
-		}
+		}*/
 
-		$printer->print();*/
+		$printer->output();
 	}
 }
 
